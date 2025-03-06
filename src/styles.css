@@ -1,1 +1,144 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Minimalist Dark Mode Theme */
+:root {
+  /* Color palette */
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --surface: #252525;
+  --primary-text: #e0e0e0;
+  --secondary-text: #a0a0a0;
+  --accent: #7289da;
+  --accent-hover: #5f73bc;
+  --error: #cf6679;
+  --success: #4caf50;
+  --border: #333333;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-text);
+  font-weight: 500;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Form elements */
+input, textarea, select, button {
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(114, 137, 218, 0.2);
+}
+
+button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+button:disabled {
+  background-color: var(--secondary-text);
+  cursor: not-allowed;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Card */
+.card {
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+/* Form validation */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border-color: var(--error);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Success message */
+.success-message {
+  color: var(--success);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Label */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary-text);
+}
+
+/* Required field indicator */
+.required::after {
+  content: '*';
+  color: var(--error);
+  margin-left: 4px;
+}
