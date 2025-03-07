@@ -1,57 +1,20 @@
-<div class="container">
-  <div class="card">
-    <h1>Prayer Request</h1>
-    
-    <form #prayerForm="ngForm" (ngSubmit)="onSubmit(prayerForm)">
-      <div class="form-group">
-        <label for="name" class="required">Name</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          class="form-control"
-          [(ngModel)]="prayerRequest.name" 
-          required
-        >
-      </div>
-      
-      <div class="form-group">
-        <label for="email" class="required">Email</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          class="form-control"
-          [(ngModel)]="prayerRequest.email" 
-          required
-          email
-          #email="ngModel"
-        >
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-          <div *ngIf="email.errors?.['required']">Email is required.</div>
-          <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label for="request" class="required">Prayer Request</label>
-        <textarea 
-          id="request" 
-          name="request" 
-          rows="5" 
-          class="form-control"
-          [(ngModel)]="prayerRequest.request" 
-          required
-        ></textarea>
-      </div>
-      
-      <button type="submit" [disabled]="prayerForm.invalid">Submit Prayer Request</button>
-    </form>
-    
-    <div *ngIf="submitted" class="success-message">
-      Thank you for submitting your prayer request. We will be praying for you.
+<div class="app-container">
+  <app-header></app-header>
+  
+  <main class="container">
+    <div class="component-section">
+      <app-events-list></app-events-list>
     </div>
-  </div>
+    
+    <div class="component-section">
+      <app-newsletter></app-newsletter>
+    </div>
+    
+    <div class="component-section">
+      <app-prayer-request></app-prayer-request>
+    </div>
+  </main>
+  
+  <app-footer></app-footer>
 </div>
-
-<router-outlet />
+<router-outlet></router-outlet>

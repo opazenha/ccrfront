@@ -1,0 +1,104 @@
+<div class="newsletter-container">
+  <!-- Newsletter Carousel -->
+  <div class="carousel-container" *ngIf="newsletters.length > 0">
+    <div class="carousel">
+      <div class="carousel-item" *ngFor="let newsletter of newsletters; let i = index" [class.active]="i === currentSlide">
+        <div class="newsletter-content">
+          <h3>Informativo - {{newsletter.date | date:'dd MMMM, yyyy'}}</h3>
+          <div [innerHTML]="newsletter.content"></div>
+        </div>
+      </div>
+      
+      <!-- Carousel Navigation -->
+      <div class="carousel-controls">
+        <button class="carousel-control prev" (click)="previousSlide()" [attr.aria-label]="'Slide anterior'">
+          <span aria-hidden="true">&#10094;</span>
+        </button>
+        <div class="carousel-indicators">
+          <button *ngFor="let newsletter of newsletters; let i = index" 
+                  [class.active]="i === currentSlide"
+                  (click)="goToSlide(i)"
+                  [attr.aria-label]="'Ir para slide ' + (i + 1)">
+          </button>
+        </div>
+        <button class="carousel-control next" (click)="nextSlide()" [attr.aria-label]="'Próximo slide'">
+          <span aria-hidden="true">&#10095;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Newsletter Subscription Form -->
+  <div class="subscription-container">
+    <h2>Assine Nosso Informativo</h2>
+    <p>Receba as últimas atualizações diretamente em sua caixa de entrada.</p>
+    
+    <!-- Success Message -->
+    <div class="success-message" *ngIf="submitted">
+      <h3>Obrigado por se inscrever!</h3>
+      <p>Você foi adicionado à nossa lista de informativos.</p>
+      <button (click)="resetForms()" class="btn btn-primary">Inscrever outro email</button>
+    </div>
+    
+    <!-- Email Form -->
+    <form *ngIf="!submitted && !showUserForm" [formGroup]="emailForm" (ngSubmit)="checkUserEmail()" class="email-form">
+      <div class="form-group">
+        <label for="email">Endereço de Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="seu@email.com" class="form-control">
+        <div *ngIf="emailForm.get('email')?.invalid && (emailForm.get('email')?.dirty || emailForm.get('email')?.touched)" class="error-message">
+          <small *ngIf="emailForm.get('email')?.errors?.['required']">Email é obrigatório</small>
+          <small *ngIf="emailForm.get('email')?.errors?.['email']">Por favor, insira um endereço de email válido</small>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" [disabled]="emailForm.invalid || submitting" class="btn btn-primary">
+          <span *ngIf="submitting">Verificando...</span>
+          <span *ngIf="!submitting">Assinar</span>
+        </button>
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{errorMessage}}</p>
+      </div>
+    </form>
+    
+    <!-- User Registration Form -->
+    <form *ngIf="showUserForm" [formGroup]="userForm" (ngSubmit)="registerUser()" class="user-form">
+      <h3>Criar uma Conta</h3>
+      <p>Por favor, forneça as seguintes informações para completar sua inscrição.</p>
+      
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name" formControlName="name" placeholder="Seu Nome" class="form-control">
+        <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)" class="error-message">
+          <small *ngIf="userForm.get('name')?.errors?.['required']">Nome é obrigatório</small>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="user-email">Endereço de Email</label>
+        <input type="email" id="user-email" formControlName="email" class="form-control" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" formControlName="password" placeholder="Senha" class="form-control">
+        <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)" class="error-message">
+          <small *ngIf="userForm.get('password')?.errors?.['required']">Senha é obrigatória</small>
+          <small *ngIf="userForm.get('password')?.errors?.['minlength']">Senha deve ter pelo menos 6 caracteres</small>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" (click)="resetForms()" class="btn btn-secondary">Cancelar</button>
+        <button type="submit" [disabled]="userForm.invalid || submitting" class="btn btn-primary">
+          <span *ngIf="submitting">Registrando...</span>
+          <span *ngIf="!submitting">Registrar & Assinar</span>
+        </button>
+      </div>
+      
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{errorMessage}}</p>
+      </div>
+    </form>
+  </div>
+</div>

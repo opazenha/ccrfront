@@ -1,0 +1,14 @@
+<header class="main-header">
+  <div class="container">
+    <div class="logo-container">
+      <img src="/logo-big.webp" alt="CCR Braga Logo" class="logo">
+    </div>
+    <nav>
+      <ul>
+        <li><button class="nav-button" [class.active]="activeTab === 'home'" (click)="setActiveTab('home')">Home</button></li>
+        <li><button class="nav-button" [class.active]="activeTab === 'prayer'" (click)="setActiveTab('prayer')">Oração</button></li>
+        <li><button class="nav-button" [class.active]="activeTab === 'contact'" (click)="setActiveTab('contact')">Contato</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>

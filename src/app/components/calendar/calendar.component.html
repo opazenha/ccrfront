@@ -1,0 +1,46 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <div class="calendar-navigation">
+      <button (click)="prevMonth()" class="nav-btn">&lt;</button>
+      <h2>{{ months[currentMonth] }} {{ currentYear }}</h2>
+      <button (click)="nextMonth()" class="nav-btn">&gt;</button>
+    </div>
+    <button (click)="goToToday()" class="today-btn">Today</button>
+  </div>
+  
+  <div class="weekdays">
+    <div class="weekday" *ngFor="let day of weekdays">{{ day }}</div>
+  </div>
+  
+  <div class="calendar-grid">
+    <div 
+      *ngFor="let day of calendarDays" 
+      class="calendar-day" 
+      [ngClass]="{
+        'current-month': day.isCurrentMonth,
+        'other-month': !day.isCurrentMonth,
+        'today': day.isToday,
+        'has-events': day.events && day.events.length > 0
+      }"
+    >
+      <div class="day-header">
+        <span class="day-number">{{ day.date.getDate() }}</span>
+        <span *ngIf="day.events && day.events.length > 0" class="event-indicator">{{ day.events.length }}</span>
+      </div>
+      
+      <div class="events-container">
+        <div 
+          *ngFor="let event of day.events" 
+          class="event-item"
+          [ngClass]="'event-' + (event.status ? event.status.toLowerCase() : 'default')"
+          [title]="event.name + ': ' + event.description"
+        >
+          <div class="event-time">
+            {{ event.time | date:'shortTime' }}
+          </div>
+          <div class="event-name">{{ event.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

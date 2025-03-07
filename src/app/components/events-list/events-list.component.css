@@ -1,0 +1,139 @@
+.events-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.view-all-link {
+  color: #00e1ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.view-all-link svg {
+  margin-left: 5px;
+}
+
+.no-events {
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 20px;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.event-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-left: 4px solid #00e1ff;
+}
+
+.event-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.event-columns {
+  display: flex;
+  gap: 20px;
+}
+
+.event-left-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-right-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-date-time {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #00e1ff;
+}
+
+.event-date {
+  font-weight: 500;
+}
+
+.event-time {
+  font-weight: 500;
+}
+
+.event-name {
+  margin: 0 0 5px 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.event-department {
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-top: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.event-duration {
+  font-size: 12px;
+  color: #cccccc;
+  margin-top: 5px;
+}
+
+.event-description {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.event-notes {
+  color: #cccccc;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.5;
+}

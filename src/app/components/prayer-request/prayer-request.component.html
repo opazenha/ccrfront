@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="card" *ngIf="!showUserRegistration">
+    <h1>Pedido de Oração</h1>
+    
+    <form #prayerForm="ngForm" (ngSubmit)="onSubmit(prayerForm)">
+      <div class="form-group">
+        <label for="name" class="required">Nome</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          class="form-control"
+          [(ngModel)]="prayerRequest.name" 
+          required
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="required">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="form-control"
+          [(ngModel)]="prayerRequest.email" 
+          required
+          email
+          #email="ngModel"
+        >
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+          <div *ngIf="email.errors?.['required']">Email é obrigatório.</div>
+          <div *ngIf="email.errors?.['email']">Por favor, insira um endereço de email válido.</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="request" class="required">Pedido de Oração</label>
+        <textarea 
+          id="request" 
+          name="request" 
+          rows="5" 
+          class="form-control"
+          [(ngModel)]="prayerRequest.request" 
+          required
+        ></textarea>
+      </div>
+      
+      <button type="submit" [disabled]="prayerForm.invalid">Enviar Pedido de Oração</button>
+    </form>
+    
+    <div *ngIf="submitted" class="success-message">
+      Obrigado por enviar seu pedido de oração. Estamos orando por você.
+    </div>
+  </div>
+
+  <!-- User Registration Form -->
+  <div class="card" *ngIf="showUserRegistration">
+    <h1>Cadastro de Usuário</h1>
+    <p class="registration-info">Precisamos de mais algumas informações para completar seu pedido de oração.</p>
+    
+    <form #userForm="ngForm" (ngSubmit)="registerUser(userForm)">
+      <div class="form-group">
+        <label for="reg-name" class="required">Nome</label>
+        <input 
+          type="text" 
+          id="reg-name" 
+          name="reg-name" 
+          class="form-control"
+          [(ngModel)]="newUser.name" 
+          required
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="reg-email" class="required">Email</label>
+        <input 
+          type="email" 
+          id="reg-email" 
+          name="reg-email" 
+          class="form-control"
+          [(ngModel)]="newUser.email" 
+          required
+          email
+          #regEmail="ngModel"
+        >
+        <div *ngIf="regEmail.invalid && (regEmail.dirty || regEmail.touched)" class="error-message">
+          <div *ngIf="regEmail.errors?.['required']">Email é obrigatório.</div>
+          <div *ngIf="regEmail.errors?.['email']">Por favor, insira um endereço de email válido.</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="reg-password" class="required">Senha</label>
+        <input 
+          type="password" 
+          id="reg-password" 
+          name="reg-password" 
+          class="form-control"
+          [(ngModel)]="newUser.password" 
+          required
+          minlength="6"
+          #regPassword="ngModel"
+        >
+        <div *ngIf="regPassword.invalid && (regPassword.dirty || regPassword.touched)" class="error-message">
+          <div *ngIf="regPassword.errors?.['required']">Senha é obrigatória.</div>
+          <div *ngIf="regPassword.errors?.['minlength']">A senha deve ter pelo menos 6 caracteres.</div>
+        </div>
+      </div>
+
+      <div *ngIf="registrationError" class="error-message registration-error">
+        {{ registrationError }}
+      </div>
+      
+      <div *ngIf="registrationSuccess" class="success-message">
+        Cadastro realizado com sucesso! Enviando seu pedido de oração...
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-button" (click)="cancelRegistration()">Cancelar</button>
+        <button type="submit" [disabled]="userForm.invalid">Cadastrar e Enviar Pedido</button>
+      </div>
+    </form>
+  </div>
+</div>

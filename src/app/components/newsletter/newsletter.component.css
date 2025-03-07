@@ -1,0 +1,282 @@
+/* Newsletter Container */
+.newsletter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  margin: 0 20px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  height: 400px;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow: auto;
+  padding: 2rem;
+  background-color: #2a2a2a;
+  color: #fff;
+  border-left: 4px solid #00e1ff;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.newsletter-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.newsletter-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #00e1ff;
+  border-bottom: 2px solid #444;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.carousel-control {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00e1ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: #00e1ff;
+}
+
+.carousel-control:hover {
+  background: rgba(0, 225, 255, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 8px;
+  margin: 0 1rem;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #555;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.carousel-indicators button.active {
+  background-color: #00e1ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 5px #00e1ff;
+}
+
+/* Subscription Container */
+.subscription-container {
+  background-color: #1c1c1c;
+  padding: 2rem;
+  margin: 0 20px;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #00e1ff;
+}
+
+.subscription-container h2 {
+  color: #00e1ff;
+  margin-bottom: 0.8rem;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.subscription-container p {
+  color: #aaaaaa;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #00e1ff;
+  box-shadow: 0 0 6px rgba(0, 225, 255, 0.3);
+  background-color: #333;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: #00e1ff;
+  color: #000;
+  width: 100%;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #33e5ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: #444;
+  color: #fff;
+  width: 100%;
+  border: 1px solid #555;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #555;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Success and Error Messages */
+.success-message {
+  background-color: #2a2a2a;
+  color: #00e1ff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border: 1px solid #00e1ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.success-message h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #00e1ff;
+  font-weight: 600;
+}
+
+.error-message {
+  color: #ff6b6b;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.error-message p {
+  margin: 0.25rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .carousel {
+    height: 450px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 500px;
+  }
+  
+  .newsletter-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .subscription-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-control {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}

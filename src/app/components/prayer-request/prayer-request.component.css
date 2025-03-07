@@ -1,0 +1,177 @@
+/* Prayer Request Component - matches website theme */
+:root {
+  /* Color palette */
+  --primary-bg: #1c1c1c;
+  --secondary-bg: #2a2a2a;
+  --primary-text: #ffffff;
+  --secondary-text: #aaaaaa;
+  --accent: #00e1ff;
+  --accent-hover: #0bc4de;
+  --error: #ff5252;
+  --success: #4caf50;
+  --border: #333333;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Typography */
+h1 {
+  color: var(--primary-text);
+  font-weight: 600;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--primary-text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Form elements */
+input, textarea, select, button {
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0, 225, 255, 0.2);
+}
+
+button {
+  background-color: var(--accent);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+button:disabled {
+  background-color: var(--secondary-text);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--primary-bg);
+}
+
+/* Card */
+.card {
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--accent);
+}
+
+/* Form validation */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border-color: var(--error);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Success message */
+.success-message {
+  color: var(--accent);
+  font-size: 16px;
+  margin: 20px 0;
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 225, 255, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+/* Registration specific styles */
+.registration-info {
+  color: var(--secondary-text);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.registration-error {
+  text-align: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: rgba(255, 82, 82, 0.1);
+  border-radius: 8px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cancel-button {
+  background-color: transparent;
+  color: var(--secondary-text);
+  border: 1px solid var(--border);
+}
+
+.cancel-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--primary-text);
+}
+
+/* Label */
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--primary-text);
+  font-weight: 500;
+}
+
+/* Required field indicator */
+.required::after {
+  content: '*';
+  color: var(--error);
+  margin-left: 4px;
+}
